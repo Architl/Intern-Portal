@@ -5,9 +5,10 @@ function Dashboard() {
   const [intern, setIntern] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/intern')
-      .then(res => setIntern(res.data))
-      .catch(err => console.error('Error:', err));
+    axios
+      .get('https://intern-portal-backend-j2i4.onrender.com/api/intern')
+      .then((res) => setIntern(res.data))
+      .catch((err) => console.error('Error:', err));
   }, []);
 
   return (
