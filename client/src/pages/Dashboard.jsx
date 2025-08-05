@@ -7,7 +7,11 @@ function Dashboard() {
   useEffect(() => {
     axios
       .get('https://intern-portal-backend-j2i4.onrender.com/api/intern')
-      .then((res) => setIntern(res.data))
+      .then((res) => {
+        if (res.data.length > 0) {
+          setIntern(res.data[0]); // Show only the first intern
+        }
+      })
       .catch((err) => console.error('Error:', err));
   }, []);
 
