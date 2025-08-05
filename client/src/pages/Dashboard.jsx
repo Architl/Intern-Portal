@@ -8,9 +8,7 @@ function Dashboard() {
     axios
       .get('https://intern-portal-backend-j2i4.onrender.com/api/intern')
       .then((res) => {
-        if (res.data.length > 0) {
-          setIntern(res.data[0]); // Show only the first intern
-        }
+        setIntern(res.data); // ✅ directly set the object, not res.data[0]
       })
       .catch((err) => console.error('Error:', err));
   }, []);
